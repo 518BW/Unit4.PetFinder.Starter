@@ -41,13 +41,9 @@ app.get("/api/v1/pets/:name", (req, res) => {
   const name = req.params.name;
   // find the pet in the pets array
   const pet = pets.find((pet) => pet.name === name);
-  console.log(pet); // Check the value of pet
 
-  if (pet) {
-      res.json(pet);
-  } else {
-      res.status(404).json({ error: 'Pet not found for the specified name' });
-  }
+  // send the pet as a response
+  res.send(pet)
 });
 
 app.listen(PORT, () => {
